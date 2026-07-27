@@ -68,6 +68,13 @@ nav ul.leftside {
     gap: 30px;
 }
 
+nav ul.leftside li a {
+    text-decoration: none;
+    color: #333333;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
 /* Área principal e seleção de Marcas */
 main .container {
     display: flex;
