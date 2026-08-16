@@ -160,6 +160,9 @@ export default function CenterPets() {
                                 </div>
                                 <button className="ver-info adocao-btn" onClick={() => navegar('info-dog-premium')}>Ver informações</button>
                             </div>
+                            <div className="btn-voltar">
+                                <button className='voltar' onClick={() => navegar ('tela-inicio')}>Voltar</button>
+                            </div>
                         </div>
                     </main>
                 </section>
@@ -180,6 +183,9 @@ export default function CenterPets() {
                                     <p className="bairro">Bairro: Piatã</p>
                                 </div>
                                 <button className="ver-info perdido-btn" onClick={() => navegar('info-dog-comum')}>Ver informações</button>
+                            </div>
+                            <div className="btn-voltar">
+                                <button className='voltar' onClick={() => navegar ('tela-inicio')}>Voltar</button>
                             </div>
                         </div>
                     </main>
@@ -210,6 +216,9 @@ export default function CenterPets() {
                                     <button className="editar">Editar</button>
                                 </div>
                             </div>
+                        <div className="btn-voltar">
+                            <button className='voltar' onClick={() => navegar ('tela-anuncio_adocao')}>Voltar</button>
+                        </div>
                         </div>
                     </main>
                 </section>
@@ -239,6 +248,9 @@ export default function CenterPets() {
                                     <button className="editar">Editar</button>
                                 </div>
                             </div>
+                        <div className="btn-voltar">
+                            <button className='voltar' onClick={() => navegar ('tela-anuncio_perdido')}>Voltar</button>
+                        </div>
                         </div>
                     </main>
                 </section>
@@ -273,6 +285,9 @@ export default function CenterPets() {
                                     <button className="editar">Editar</button>
                                 </div>
                             </div>
+                        <div className="btn-voltar">
+                            <button className='voltar' onClick={() => navegar ('tela-anuncio_adocao')}>Voltar</button>
+                        </div>
                         </div>
                     </main>
                 </section>
@@ -311,6 +326,9 @@ export default function CenterPets() {
 
                                 <button type="submit" className="publicar-btn">🐾 Publicar</button>
                             </form>
+                        <div className="btn-voltar">
+                            <button className='voltar' onClick={() => navegar ('tela-inicio')}>Voltar</button>
+                        </div>
                         </div>
                     </main>
                 </section>

@@ -725,7 +725,22 @@ body{
     margin: 15px 0;
 }
 
-
+.btn-voltar button {
+    font-size: 16px;
+    text-align: center;
+    width: 200px;
+    height: 50px;
+    border: none;
+    border-radius: 15px;
+    margin-top: 20px;
+    color: #f6f8f6;
+    background-color: #276029;
+    
+}
+.btn-voltar button:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 15px -3px color(rgba green);
+}
 
 .btn-confirmar {
     width: 100%;
