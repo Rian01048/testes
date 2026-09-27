@@ -1,0 +1,19 @@
+<section class="pagina ativa">
+    <main class="inicio">
+        <div class="container lista">
+            <h2>Anúncios de Adoção</h2>
+            <input type="text" class="busca" placeholder="Buscar cidade ou bairro...">
+
+            <div class="card-pet" *ngFor="let pet of listaDePets">
+                <img [src]="pet.imagem" [alt]="pet.nome">
+                <div class="info-pet">
+                    <h3>{{ pet.nome }}</h3>
+                    <p>{{ pet.especie }} <span class="adocao-texto">• {{ pet.situacao }}</span></p>
+                    <p class="bairro">Bairro: {{ pet.bairro }}</p>
+                </div>
+                <!-- Ao clicar, enviamos o objeto pet inteiro para a página info-pet -->
+                <button class="ver-info adocao-btn" [routerLink]="['/info-pet']" [state]="{ animalClicado: pet }">Ver informações</button>
+            </div>
+        </div>
+    </main>
+</section>

@@ -1,0 +1,29 @@
+<section class="pagina ativa">
+    <main class="inicio">
+        <div class="container">
+            <div class="logo">
+                <img src="https://static.vecteezy.com/system/resources/previews/009/385/339/non_2x/cat-paw-clipart-design-illustration-free-png.png" alt="Logótipo">
+                <h2>CenterPets</h2>
+            </div>
+
+            <form class="card" (submit)="realizarLogin()">
+                <h1>Login</h1>
+                <p class="descricao">Entre na sua conta para continuar</p>
+
+                <label for="loginEmail">E-mail</label>
+                <input type="text" id="loginEmail" [(ngModel)]="email" name="email" placeholder="Digite seu e-mail">
+
+                <label for="loginSenha">Senha</label>
+                <input type="password" id="loginSenha" [(ngModel)]="senha" name="senha" placeholder="Digite sua senha">
+
+                <a class="esqueci" href="#">Esqueci minha senha</a>
+
+                <button type="submit">🐾 Entrar</button>
+
+                <div class="divisor"><span>ou</span></div>
+
+                <p class="rodape-form">Não tem uma conta? <a routerLink="/cadastro">Criar conta</a></p>
+            </form>
+        </div>
+    </main>
+</section>

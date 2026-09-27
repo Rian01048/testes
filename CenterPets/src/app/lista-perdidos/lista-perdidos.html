@@ -1,0 +1,18 @@
+<section class="pagina ativa">
+    <main class="inicio">
+        <div class="container lista">
+            <h2>Animais Perdidos</h2>
+            <input type="text" class="busca" placeholder="Buscar cidade ou bairro...">
+
+            <div class="card-pet" *ngFor="let pet of listaPerdidos">
+                <img [src]="pet.imagem" [alt]="pet.nome">
+                <div class="info-pet">
+                    <h3>{{ pet.nome }}</h3>
+                    <p class="perdido-texto">{{ pet.situacao }}</p>
+                    <p class="bairro">Bairro: {{ pet.bairro }}</p>
+                </div>
+                <button class="ver-info perdido-btn" [routerLink]="['/info-pet']" [state]="{ animalClicado: pet }">Ver informações</button>
+            </div>
+        </div>
+    </main>
+</section>

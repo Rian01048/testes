@@ -1,0 +1,55 @@
+<section class="pagina ativa">
+    <main class="inicio">
+        <div class="container">
+            <div class="card info-animal">
+                <h1>Informações do animal</h1>
+                <img [src]="pet.imagem" [alt]="pet.nome" *ngIf="pet.imagem">
+
+                <!-- Muda a cor do título baseado na situação -->
+                <h2 class="nome-animal" [ngClass]="pet.situacao === 'Perdido' ? 'perdido-texto' : 'adocao-texto'">{{ pet.nome }}</h2>
+
+                <div class="dados">
+                    <p><strong>Espécie:</strong> {{ pet.especie }}</p>
+                    <p><strong>Situação:</strong> <span [ngClass]="pet.situacao === 'Perdido' ? 'perdido-texto' : 'adocao-texto'">{{ pet.situacao }}</span></p>
+                    <p><strong>Bairro:</strong> {{ pet.bairro }}</p>
+                    <p><strong>Cidade:</strong> {{ pet.cidade }}</p>
+                    <p><strong>Contato:</strong> {{ pet.contato }}</p>
+                </div>
+
+                <!-- Se o animal tiver preço (Chinego), mostra o bloco de preço e o botão de comprar -->
+                <div class="preco" *ngIf="pet.preco">
+                    <p>Valor para adoção</p>
+                    <strong>R$ {{ pet.preco }}</strong>
+                </div>
+                <button class="contato" *ngIf="pet.preco" (click)="alternarModal()">Compre agora!!</button>
+
+                <!-- Se NÃO tiver preço, mostra apenas o botão de contato -->
+                <button class="contato" *ngIf="!pet.preco">🐾 Entrar em contato</button>
+
+                <div class="acoes">
+                    <button class="excluir" routerLink="/inicio">Voltar</button>
+                </div>
+            </div>
+        </div>
+    </main>
+</section>
+
+
+<div class="modal-overlay" *ngIf="modalAberto">
+    <div class="modal-content">
+        <span class="fechar" (click)="alternarModal()">x</span>
+        <h2>Resumo da Transação</h2>
+        <div class="dados-empresa">
+            <p><strong>Plataforma AdoteFácil</strong></p>
+        </div>
+        <hr class="linha-tracejada">
+        <div class="nota-detalhes">
+            <div class="item-nota"><span>Valor base ({{ pet.nome }})</span><span>R$ {{ pet.preco }}</span></div>
+            <br>
+            <div class="item-nota repasse"><span>Repasse à Instituição (92%)</span></div>
+            <div class="item-nota taxa"><span>Taxa da Plataforma (8%)</span></div>
+        </div>
+        <hr class="linha-tracejada">
+        <button class="btn-confirmar" (click)="alternarModal()">Confirmar Pagamento</button>
+    </div>
+</div>

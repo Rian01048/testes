@@ -1,0 +1,13 @@
+<button id="menu-btn" class="hamburger" (click)="alternarMenu()">☰</button>
+<div id="overlay" *ngIf="menuAberto" (click)="alternarMenu()"></div>
+<nav id="menu" class="sidebar" [class.ativa]="menuAberto">
+    <div class="logo">
+        <img src="https://static.vecteezy.com/system/resources/previews/009/385/339/non_2x/cat-paw-clipart-design-illustration-free-png.png" alt="Logo">
+        <h2>CenterPets</h2>
+    </div>
+    <ul>
+        <li><a routerLink="/inicio" routerLinkActive="ativo" (click)="alternarMenu()">Início</a></li>
+        <li><a routerLink="/login" routerLinkActive="ativo" (click)="alternarMenu()">Login</a></li>
+        <li><a routerLink="/cadastro" routerLinkActive="ativo" (click)="alternarMenu()">Cadastro</a></li>
+    </ul>
+</nav>

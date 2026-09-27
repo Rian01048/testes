@@ -1,0 +1,46 @@
+<section class="pagina ativa">
+    <main class="inicio">
+        <div class="container">
+            <div class="logo">
+                <img src="https://static.vecteezy.com/system/resources/previews/009/385/339/non_2x/cat-paw-clipart-design-illustration-free-png.png" alt="Logótipo">
+                <h2>CenterPets</h2>
+            </div>
+
+            <form class="card" (submit)="realizarCadastro()">
+                <h1>Cadastro de usuário</h1>
+                <p class="descricao">Preencha os dados abaixo para criar sua conta</p>
+
+                <label for="nomeCompleto">Nome completo</label>
+                <input type="text" id="nomeCompleto" [(ngModel)]="nome" name="nome" placeholder="Digite seu nome completo">
+
+                <div class="linha">
+                    <div class="campo">
+                        <label for="cadastroEmail">E-mail</label>
+                        <input type="text" id="cadastroEmail" [(ngModel)]="email" name="email" placeholder="Digite seu e-mail">
+                    </div>
+                    <div class="campo">
+                        <label for="numTel">Telefone (opcional)</label>
+                        <input type="tel" id="numTel" placeholder="(00) 00000-0000">
+                    </div>
+                </div>
+
+                <div class="linha">
+                    <div class="campo">
+                        <label for="cadastroSenha">Senha</label>
+                        <input type="password" id="cadastroSenha" [(ngModel)]="senha" name="senha" placeholder="Digite sua senha">
+                    </div>
+                    <div class="campo">
+                        <label for="confirmarSenha">Confirmar senha</label>
+                        <input type="password" id="confirmarSenha" placeholder="Confirme sua senha">
+                    </div>
+                </div>
+
+                <button type="submit">🐾 Cadastrar</button>
+
+                <div class="divisor"><span>ou</span></div>
+
+                <p class="rodape-form">Já tem uma conta? <a routerLink="/login">Voltar para login</a></p>
+            </form>
+        </div>
+    </main>
+</section>
