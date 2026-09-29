@@ -2,13 +2,11 @@ import { Injectable } from '@angular/core';
 
 @Injectable({ providedIn: 'root' })
 export class PetService {
-  getPets(tipo: string) {
-    return JSON.parse(localStorage.getItem(tipo) || '[]');
-  }
+  pets: any[] = JSON.parse(localStorage.getItem('banco_pets') || '[]');
+  
+  petSelecionado: any = null;
 
-  adicionarPet(pet: any, tipo: string) {
-    const pets = this.getPets(tipo);
-    pets.push(pet);
-    localStorage.setItem(tipo, JSON.stringify(pets));
+  atualizarBanco() {
+    localStorage.setItem('banco_pets', JSON.stringify(this.pets));
   }
 }

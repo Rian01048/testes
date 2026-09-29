@@ -122,7 +122,6 @@
 
 .logo img {
     width: 75px;
-    /* Isto resolve a pata gigante! */
     height: auto;
     margin-bottom: 10px;
 }

@@ -1,53 +1,43 @@
-<section class="pagina ativa">
-    <main class="inicio">
-        <div class="container">
-            <form class="card" (submit)="publicar()">
-                <h2>Publicar Animal</h2>
+<section class="pagina">
+    <div class="container">
+        <form class="card" (submit)="publicar()">
+            <h2>Publicar Animal</h2>
 
-                <label>Foto do Animal</label>
-                <label class="upload-area">
-                    <div class="upload-conteudo">
-                        <!-- Mostra isto antes de escolher a foto -->
-                        <span class="icone" *ngIf="!imagemBase64">📸</span>
-                        <span class="texto" *ngIf="!imagemBase64">Clique para escolher uma foto</span>
-                        
-                        <!-- Mostra isto depois de escolher a foto -->
-                        <span class="icone" *ngIf="imagemBase64">✅</span>
-                        <span class="texto-sucesso" *ngIf="imagemBase64">Foto carregada com sucesso!</span>
-                    </div>
-                    <!-- O input nativo fica invisível a cobrir esta área toda -->
-                    <input type="file" (change)="processarImagem($event)" accept="image/*">
-                </label>
-
-                <label for="nomeAnimal">Nome (opcional)</label>
-                <input type="text" id="nomeAnimal" [(ngModel)]="nome" name="nome" placeholder="Digite o nome do animal">
-
-                <label>Espécie</label>
-                <div class="opcoes">
-                    <button type="button" class="opcao" [class.selecionado]="especieSelecionada === 'Cachorro'" (click)="selecionarEspecie('Cachorro')">🐶 Cachorro</button>
-                    <button type="button" class="opcao" [class.selecionado]="especieSelecionada === 'Gato'" (click)="selecionarEspecie('Gato')">😺 Gato</button>
-                </div>
-
-                <label>Situação</label>
-                <div class="opcoes">
-                    <button type="button" class="opcao" [class.selecionado]="situacaoSelecionada === 'Adocao'" (click)="selecionarSituacao('Adocao')">Para adoção</button>
-                    <button type="button" class="opcao" [class.selecionado]="situacaoSelecionada === 'Perdido'" (click)="selecionarSituacao('Perdido')">Perdido</button>
-                </div>
-
-                <label for="bairro">Bairro</label>
-                <input type="text" id="bairro" [(ngModel)]="bairro" name="bairro" placeholder="Digite o bairro">
-
-                <label for="cidade">Cidade</label>
-                <input type="text" id="cidade" [(ngModel)]="cidade" name="cidade" placeholder="Digite a cidade">
-
-                <label for="tel">Telefone</label>
-                <input type="tel" id="tel" [(ngModel)]="tel" name="tel" placeholder="(00) 00000-0000">
-
-                <label for="preco" *ngIf="situacaoSelecionada === 'Adocao'">Valor de Adoção (opcional)</label>
-                <input type="text" id="preco" [(ngModel)]="preco" name="preco" *ngIf="situacaoSelecionada === 'Adocao'" placeholder="Ex: 200,00">
-
-                <button type="submit" class="publicar-btn">🐾 Publicar</button>
-            </form>
+            <label>Foto do Animal</label>
+            <label class="upload-area">
+        <div class="upload-conteudo">
+          <span *ngIf="!novoPet.imagem">📸 Clique para foto</span>
+          <span *ngIf="novoPet.imagem" class="adocao-texto">✅ Foto carregada!</span>
         </div>
-    </main>
+        <input type="file" (change)="processarImagem($event)" accept="image/*">
+      </label>
+
+            <label>Nome (opcional)</label>
+            <input type="text" [(ngModel)]="novoPet.nome" name="nome" placeholder="Digite o nome">
+
+            <label>Espécie</label>
+            <div class="opcoes-container">
+                <button type="button" class="btn-opcao" [class.ativo]="novoPet.especie === 'Cachorro'" (click)="novoPet.especie = 'Cachorro'">Cachorro</button>
+                <button type="button" class="btn-opcao" [class.ativo]="novoPet.especie === 'Gato'" (click)="novoPet.especie = 'Gato'">Gato</button>
+            </div>
+
+            <label>Situação</label>
+            <div class="opcoes-container">
+                <button type="button" class="btn-opcao" [class.ativo]="novoPet.situacao === 'Adoção'" (click)="novoPet.situacao = 'Adoção'">Adoção</button>
+                <button type="button" class="btn-opcao" [class.ativo]="novoPet.situacao === 'Perdido'" (click)="novoPet.situacao = 'Perdido'">Perdido</button>
+            </div>
+
+            <label>Bairro / Cidade</label>
+            <input type="text" [(ngModel)]="novoPet.bairro" name="bairro" placeholder="Bairro">
+            <input type="text" [(ngModel)]="novoPet.cidade" name="cidade" placeholder="Cidade">
+
+            <label>Telefone</label>
+            <input type="tel" [(ngModel)]="novoPet.tel" name="tel" placeholder="(00) 00000-0000">
+
+            <label *ngIf="novoPet.situacao === 'Adoção'">Valor VIP (opcional)</label>
+            <input type="text" *ngIf="novoPet.situacao === 'Adoção'" [(ngModel)]="novoPet.preco" name="preco" placeholder="Ex: 200,00">
+
+            <button type="submit" class="btn-verde">Publicar Anúncio</button>
+        </form>
+    </div>
 </section>

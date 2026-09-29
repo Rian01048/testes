@@ -1,18 +1,22 @@
-<section class="pagina ativa">
-    <main class="inicio">
-        <div class="container lista">
-            <h2>Animais Perdidos</h2>
-            <input type="text" class="busca" placeholder="Buscar cidade ou bairro...">
+<section class="pagina">
+    <div class="container">
+        <h2 class="titulo-pagina">Animais Perdidos</h2>
 
-            <div class="card-pet" *ngFor="let pet of listaPerdidos">
-                <img [src]="pet.imagem" [alt]="pet.nome">
-                <div class="info-pet">
-                    <h3>{{ pet.nome }}</h3>
-                    <p class="perdido-texto">{{ pet.situacao }}</p>
-                    <p class="bairro">Bairro: {{ pet.bairro }}</p>
-                </div>
-                <button class="ver-info perdido-btn" [routerLink]="['/info-pet']" [state]="{ animalClicado: pet }">Ver informações</button>
-            </div>
+        <div class="area-pesquisa">
+            <input type="text" class="busca" [(ngModel)]="termoPesquisa" placeholder="Buscar cidade ou bairro...">
+            <button class="btn-pesquisar" (click)="pesquisar()">Buscar</button>
         </div>
-    </main>
+
+        <p class="vazio" *ngIf="petsFiltrados.length === 0">Nenhum animal perdido encontrado para esta pesquisa.</p>
+
+        <div class="card-lista" *ngFor="let pet of petsFiltrados">
+            <img [src]="pet.imagem" alt="Foto do pet">
+            <div class="dados-lista">
+                <h3>{{ pet.nome || 'Sem Nome' }}</h3>
+                <p class="perdido-texto">{{ pet.situacao }}</p>
+                <p class="localizacao-texto">{{ pet.bairro }} - {{ pet.cidade }}</p>
+            </div>
+            <button class="btn-ver" (click)="abrirInfo(pet)">Ver Info</button>
+        </div>
+    </div>
 </section>

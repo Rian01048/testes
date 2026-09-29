@@ -12,53 +12,32 @@ import { PetService } from '../pet';
   styleUrl: './cadastro-pet.css'
 })
 export class CadastroPetComponent {
-  especieSelecionada: string = '';
-  situacaoSelecionada: string = 'Adocao';
-  imagemBase64: string = '';
-
-  nome: string = '';
-  bairro: string = '';
-  cidade: string = '';
-  tel: string = '';
-  preco: string = '';
+  novoPet = { nome: '', especie: 'Cachorro', situacao: 'Adoção', bairro: '', cidade: '', tel: '', preco: '', imagem: '' };
 
   constructor(private petService: PetService, private router: Router) {}
 
-  selecionarEspecie(especie: string) { this.especieSelecionada = especie; }
-  selecionarSituacao(situacao: string) { this.situacaoSelecionada = situacao; }
-
-  // Converte a imagem carregada para Base64 (texto) para ser guardada
   processarImagem(event: any) {
     const file = event.target.files[0];
     if (file) {
       const reader = new FileReader();
-      reader.onload = (e: any) => this.imagemBase64 = e.target.result;
+      reader.onload = (e: any) => this.novoPet.imagem = e.target.result;
       reader.readAsDataURL(file);
     }
   }
 
   publicar() {
-    if (!this.especieSelecionada || !this.imagemBase64) {
-      alert('Por favor, selecione a espécie e insira uma imagem.');
+    if (!this.novoPet.imagem) {
+      alert('Adicione uma foto do animal!');
       return;
     }
-
-    const novoPet = {
-      nome: this.nome,
-      especie: this.especieSelecionada,
-      situacao: this.situacaoSelecionada === 'Adocao' ? 'Para adoção' : 'Perdido',
-      bairro: this.bairro,
-      cidade: this.cidade,
-      contato: this.tel,
-      preco: this.preco,
-      imagem: this.imagemBase64
-    };
-
-    if (this.situacaoSelecionada === 'Adocao') {
-      this.petService.adicionarPet(novoPet, 'petsAdocao');
+    
+    this.petService.pets.push(this.novoPet);
+    
+    this.petService.atualizarBanco();
+    
+    if (this.novoPet.situacao === 'Adoção') {
       this.router.navigate(['/lista-adocao']);
     } else {
-      this.petService.adicionarPet(novoPet, 'petsPerdidos');
       this.router.navigate(['/lista-perdidos']);
     }
   }

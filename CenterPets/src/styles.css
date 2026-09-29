@@ -9,18 +9,14 @@ body {
     background: #f7f7f7;
 }
 
-
-/* Fundo padrão de todas as telas */
-
 .pagina {
-    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
     background: linear-gradient(rgba(0, 128, 0, 0.438), rgba(255, 255, 255, 0.315));
     background-color: #469749c2;
-    min-height: 100vh;
 }
-
-
-/* Centralização do conteúdo */
 
 .inicio {
     width: 100%;
@@ -38,15 +34,6 @@ body {
     flex-direction: column;
     align-items: center;
 }
-
-@media (min-width: 600px) {
-    .container {
-        max-width: 480px;
-    }
-}
-
-
-/* Cards reutilizáveis (Login, Cadastro, etc) */
 
 .card {
     width: 100%;
@@ -66,6 +53,13 @@ body {
     margin-bottom: 6px;
 }
 
+.card label {
+    font-size: 14px;
+    color: #444;
+    margin-bottom: 6px;
+    font-weight: bold;
+}
+
 .card input {
     width: 100%;
     height: 44px;
@@ -82,8 +76,21 @@ body {
     border-color: #2e7d32;
 }
 
+.btn-verde {
+    height: 46px;
+    background: #2e7d32;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: .3s;
+}
 
-/* Textos Globais */
+.btn-verde:hover {
+    background: #276029;
+}
 
 .adocao-texto {
     color: #2e7d32;

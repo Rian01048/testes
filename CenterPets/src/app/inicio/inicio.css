@@ -4,41 +4,52 @@
     height: 460px;
     border-radius: 25px;
     padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+    box-shadow: 20px 20px 5px rgba(0, 0, 0, 0.267);
 }
 
 .conteudo-inicio img {
     margin-top: 25px;
     margin-bottom: 10px;
+    width: 100px;
 }
 
 .conteudo-inicio h1 {
     color: #3c7754;
     font-size: 46px;
     font-weight: bold;
-    margin-bottom: 8px;
+    margin: 0 0 8px 0;
+    text-align: center;
 }
 
 .conteudo-inicio p {
     color: #333;
     text-align: center;
-    margin-bottom: 35px;
+    margin: 0 0 35px 0;
     font-size: 14px;
 }
 
-.btn {
+.botoes-inicio {
     width: 250px;
     display: flex;
     flex-direction: column;
     gap: 12px;
 }
 
-.btn button {
+.botoes-inicio button {
     height: 42px;
+    background-color: #ffffff;
     border-radius: 8px;
-    background: white;
     cursor: pointer;
     font-size: 14px;
-    transition: .3s;
+    transition: background-color 0.3s ease;
+}
+
+.botoes-inicio button:hover {
+    background-color: #fdf7f2;
 }
 
 .adotar {
@@ -46,17 +57,9 @@
     color: #4a6d3d;
 }
 
-.adotar:hover {
-    background: #c8dcae;
-}
-
 .perdidos {
     border: 2px solid #efc4c4;
     color: #ca6d6d;
-}
-
-.perdidos:hover {
-    background: #efc4c4;
 }
 
 .publicar {
@@ -64,6 +67,17 @@
     color: #4782a2;
 }
 
-.publicar:hover {
-    background: #b9dcea;
+adotar {
+    border: 2px solid #c8dcae;
+    color: #4a6d3d;
+}
+
+.perdidos {
+    border: 2px solid #efc4c4;
+    color: #ca6d6d;
+}
+
+.publicar {
+    border: 2px solid #b9dcea;
+    color: #4782a2;
 }

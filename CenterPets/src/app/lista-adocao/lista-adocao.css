@@ -1,84 +1,96 @@
-.lista {
-    align-items: stretch;
-    width: 100%;
-}
-
-.lista h2 {
+.titulo-pagina {
     color: white;
-    font-size: 24px;
-    margin-bottom: 15px;
     text-align: center;
-}
-
-.busca {
-    width: 100%;
-    height: 44px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 0 14px;
     margin-bottom: 20px;
-    outline: none;
 }
 
-.card-pet {
+.vazio {
+    text-align: center;
+    color: white;
+    font-size: 14px;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.card-lista {
     background: #fff;
     border-radius: 12px;
-    padding: 15px;
+    padding: 25px;
     margin-bottom: 15px;
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 45px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-.card-pet img {
-    width: 65px;
-    height: 65px;
+.card-lista img {
+    width: 85px;
+    height: 85px;
     border-radius: 10px;
     object-fit: cover;
 }
 
-.info-pet {
-    flex: 1;
-}
-
-.info-pet h3 {
-    font-size: 17px;
+.dados-lista h3 {
+    font-size: 20px;
     color: #333;
     margin-bottom: 2px;
 }
 
-.info-pet p {
-    font-size: 13px;
-    color: #555;
-}
-
-.bairro {
-    color: #8b8b8b;
-}
-
-.ver-info {
+.btn-ver {
+    padding: 10px 15px;
+    background: #2e7d32;
+    color: #fff;
     border: none;
     border-radius: 8px;
-    padding: 10px 18px;
-    font-size: 13px;
+    cursor: pointer;
+    font-size: 12px;
     font-weight: bold;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.area-pesquisa {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.busca {
+    flex: 1;
+    height: 44px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 0 14px;
+    font-size: 14px;
+    outline: none;
+    transition: .3s;
+}
+
+.busca:focus {
+    border-color: #2e7d32;
+}
+
+.btn-pesquisar {
+    padding: 0 20px;
+    background: #2e7d32;
     color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
     cursor: pointer;
     transition: .3s;
 }
 
-.adocao-btn {
-    background: #2e7d32;
-}
-
-.adocao-btn:hover {
+.btn-pesquisar:hover {
     background: #276029;
 }
 
-.perdido-btn {
-    background: #c0392b;
-}
-
-.perdido-btn:hover {
-    background: #a13022;
+.localizacao-texto {
+    color: #535151;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 15px;
+    font-size: 15px;
 }
