@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autenticação Premium</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+
+        <!-- 1. Login -->
+        <div id="login-section" class="form-section active">
+            <div class="header">
+                <h2>Bem-vindo de volta</h2>
+                <p>Insira suas credenciais para acessar</p>
+            </div>
+            <form id="form-login">
+                <div class="input-group">
+                    <input type="email" id="login-email" required placeholder=" ">
+                    <label>E-mail</label>
+                </div>
+                <div class="input-group">
+                    <input type="password" id="login-senha" required placeholder=" ">
+                    <label>Senha</label>
+                </div>
+                <a href="#" class="link-forgot" onclick="toggleSection('forgot-section')">Esqueceu a senha?</a>
+                <button type="submit" class="btn-primary">Entrar</button>
+            </form>
+            <p class="footer-text">Não tem uma conta? <a href="#" onclick="toggleSection('register-section')">Cadastre-se</a></p>
+        </div>
+
+        <!-- 2. Cadastro -->
+        <div id="register-section" class="form-section">
+            <div class="header">
+                <h2>Criar Conta</h2>
+                <p>Junte-se a nós hoje mesmo</p>
+            </div>
+            <form id="form-register">
+                <div class="input-group">
+                    <input type="email" id="reg-email" required placeholder=" ">
+                    <label>E-mail</label>
+                </div>
+                <div class="input-group">
+                    <input type="password" id="reg-senha" required placeholder=" ">
+                    <label>Senha</label>
+                </div>
+                <button type="submit" class="btn-primary">Cadastrar</button>
+            </form>
+            <p class="footer-text">Já possui conta? <a href="#" onclick="toggleSection('login-section')">Fazer Login</a></p>
+        </div>
+
+        <!-- 3. Solicitar Código -->
+        <div id="forgot-section" class="form-section">
+            <div class="header">
+                <h2>Recuperar Senha</h2>
+                <p>Enviaremos um código para o seu e-mail</p>
+            </div>
+            <form id="form-forgot">
+                <div class="input-group">
+                    <input type="email" id="forgot-email" required placeholder=" ">
+                    <label>E-mail cadastrado</label>
+                </div>
+                <button type="submit" class="btn-primary" id="btn-send-code">Enviar Código</button>
+            </form>
+            <button class="btn-secondary" onclick="toggleSection('login-section')">Voltar</button>
+        </div>
+
+        <!-- 4. TELA NOVA: Inserir Código (Estilo OTP) -->
+        <div id="verify-section" class="form-section">
+            <div class="header">
+                <h2>Verificar Código</h2>
+                <p>Insira o código de 6 dígitos que enviamos para o seu e-mail.</p>
+            </div>
+            <div class="otp-container">
+                <input type="text" class="otp-input" maxlength="1" pattern="[0-9]" inputmode="numeric">
+                <input type="text" class="otp-input" maxlength="1" pattern="[0-9]" inputmode="numeric">
+                <input type="text" class="otp-input" maxlength="1" pattern="[0-9]" inputmode="numeric">
+                <input type="text" class="otp-input" maxlength="1" pattern="[0-9]" inputmode="numeric">
+                <input type="text" class="otp-input" maxlength="1" pattern="[0-9]" inputmode="numeric">
+                <input type="text" class="otp-input" maxlength="1" pattern="[0-9]" inputmode="numeric">
+            </div>
+            <button class="btn-primary" id="btn-verify-code">Validar Código</button>
+            <button class="btn-secondary" onclick="toggleSection('forgot-section')">Voltar</button>
+        </div>
+
+        <!-- 5. TELA NOVA: Redefinir Senha -->
+        <div id="reset-section" class="form-section">
+            <div class="header">
+                <h2>Nova Senha</h2>
+                <p>Crie uma nova senha segura</p>
+            </div>
+            <form id="form-reset">
+                <div class="input-group">
+                    <input type="password" id="reset-senha" required placeholder=" ">
+                    <label>Nova Senha</label>
+                </div>
+                <button type="submit" class="btn-primary">Atualizar Senha</button>
+            </form>
+        </div>
+
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
